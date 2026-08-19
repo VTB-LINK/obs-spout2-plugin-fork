@@ -363,8 +363,8 @@ void win_spout_filter_tick(void *data, float seconds)
 	// hold a "showing" ref on the parent so it keeps rendering off-screen. This
 	// tick runs every frame regardless of scene, so it also drops the ref when the
 	// option or filter is turned off.
-	const bool want_showing =
-		win_spout_config::get()->continuous_broadcast && obs_source_enabled(context->source_context);
+	const bool want_showing = win_spout_config::get()->continuous_broadcast &&
+				  obs_source_enabled(context->source_context);
 
 	if (want_showing && !context->showing_held) {
 		obs_source_inc_showing(obs_filter_get_parent(context->source_context));
